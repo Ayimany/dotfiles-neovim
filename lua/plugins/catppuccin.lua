@@ -1,6 +1,6 @@
 return {
-    "catppuccin/nvim",
-    name     = "Catppuccin",
+    'catppuccin/nvim',
+    name     = 'Catppuccin',
     priority = 1000,
 
     opts = {
@@ -19,13 +19,13 @@ return {
             conditionals = { 'italic' },
             loops        = { 'italic' },
             functions    = { 'italic' },
-            keywords     = { 'italic', 'bold' },
+            keywords     = { 'italic' },
             strings      = { },
             variables    = { },
             numbers      = { 'bold' },
             booleans     = { 'bold' },
             properties   = { },
-            types        = { 'bold' },
+            types        = { },
             operators    = { },
         },
 
@@ -44,18 +44,18 @@ return {
             native_lsp = {
                 enabled = true,
                 virtual_text = {
-                    errors      = { "italic" },
-                    hints       = { "italic" },
-                    warnings    = { "italic" },
-                    information = { "italic" },
-                    ok          = { "italic" },
+                    errors      = { 'italic' },
+                    hints       = { 'italic' },
+                    warnings    = { 'italic' },
+                    information = { 'italic' },
+                    ok          = { 'italic' },
                 },
                 underlines = {
-                    errors      = { "underline" },
-                    hints       = { "underline" },
-                    warnings    = { "underline" },
-                    information = { "underline" },
-                    ok          = { "underline" },
+                    errors      = { 'underline' },
+                    hints       = { 'underline' },
+                    warnings    = { 'underline' },
+                    information = { 'underline' },
+                    ok          = { 'underline' },
                 },
                 inlay_hints = {
                     background = true,
@@ -66,7 +66,7 @@ return {
 
     config = function(plugin, opts)
         require('catppuccin').setup(opts)
-        vim.cmd.colorscheme "catppuccin"
+        vim.cmd.colorscheme('catppuccin')
     end
 
 }

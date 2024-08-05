@@ -59,10 +59,10 @@ return {
                 end,
 
                 keymaps = {
-                    goto_definition     = "<leader>sd",
-                    list_definitions    = "<leader>sld",
-                    goto_next_usage     = "<leader>sun",
-                    goto_previous_usage = "<leader>sup",
+                    goto_definition     = '<leader>sd',
+                    list_definitions    = '<leader>sld',
+                    goto_next_usage     = '<leader>sun',
+                    goto_previous_usage = '<leader>sup',
                 }
             }
         },

@@ -5,35 +5,35 @@ return {
 
     opts = {
         inlay_hints = {
-            only_current_line_autocmd = { "CursorHold,CursorMoved" },
-            parameter_hints_prefix = "󰁍 ",
-            other_hints_prefix = "󰁔 " ,
+            only_current_line_autocmd = { 'CursorHold,CursorMoved' },
+            parameter_hints_prefix = '󰁍 ',
+            other_hints_prefix = '󰁔 ' ,
         },
         ast = {
             role_icons = {
                 type = ' ',
                 declaration = ' ',
                 expression = ' ',
-                specifier = " ",
-                statement = " ",
-                ["template argument"] = " ",
+                specifier = ' ',
+                statement = ' ',
+                ['template argument'] = ' ',
             },
 
             kind_icons = {
-                Compound = " ",
-                Recovery = " ",
-                TranslationUnit = " ",
-                PackExpansion = " ",
-                TemplateTypeParm = " ",
-                TemplateTemplateParm = " ",
-                TemplateParamObject = " ",
+                Compound = ' ',
+                Recovery = ' ',
+                TranslationUnit = ' ',
+                PackExpansion = ' ',
+                TemplateTypeParm = ' ',
+                TemplateTemplateParm = ' ',
+                TemplateParamObject = ' ',
             },
         },
         memory_usage = {
-            border = "none",
+            border = 'none',
         },
         symbol_info = {
-            border = "none",
+            border = 'none',
         },
 
     }
