@@ -21,8 +21,13 @@ return {
 
     opts = {
         ensure_installed = {
-            'clangd', 'lua_ls', 'pylsp'
+            'clangd',
+            'lua_ls',
+            'pylsp',
+            'texlab',
+            'hls',
+            'matlab_ls',
+            'r_language_server'
         }
     }
 }
-
