@@ -116,13 +116,6 @@ return {
             cmp_autopairs.on_confirm_done()
         )
 
-
-        --
-        --
-        --
-        --
-        --
-        --
         local c = require('catppuccin.palettes').get_palette('mocha')
 
         vim.api.nvim_set_hl(0, 'PmenuSel', { fg = c.text, bg = 'NONE' })

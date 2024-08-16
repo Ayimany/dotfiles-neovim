@@ -3,33 +3,33 @@ return {
     name     = 'Catppuccin',
     priority = 1000,
 
-    opts = {
-        flavour    = 'auto',
-        background = {
+    opts     = {
+        flavour                = 'auto',
+        background             = {
             light = 'latte',
             dark  = 'mocha'
         },
 
         transparent_background = true,
-        show_end_of_buffer = true,
-        term_colors = true,
+        show_end_of_buffer     = true,
+        term_colors            = true,
 
-        styles = {
-            comments     = { },
-            conditionals = { 'italic' },
-            loops        = { 'italic' },
+        styles                 = {
+            comments     = { 'italic' },
+            conditionals = {},
+            loops        = {},
             functions    = { 'italic' },
-            keywords     = { 'italic' },
-            strings      = { },
-            variables    = { },
+            keywords     = {},
+            strings      = {},
+            variables    = { 'italic' },
             numbers      = { 'bold' },
             booleans     = { 'bold' },
-            properties   = { },
-            types        = { },
-            operators    = { },
+            properties   = { 'italic' },
+            types        = {},
+            operators    = {},
         },
 
-        integrations = {
+        integrations           = {
             cmp = true,
             gitsigns = true,
             lsp_trouble = true,
@@ -64,10 +64,9 @@ return {
         }
     },
 
-    config = function(plugin, opts)
+    config   = function(plugin, opts)
         require('catppuccin').setup(opts)
         vim.cmd.colorscheme('catppuccin')
     end
 
 }
-

@@ -24,10 +24,6 @@ return {
             'clangd',
             'lua_ls',
             'pylsp',
-            'texlab',
-            'hls',
-            'matlab_ls',
-            'r_language_server'
         }
     }
 }
