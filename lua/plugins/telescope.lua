@@ -3,6 +3,9 @@ return {
     name = 'Telescope',
 
 
+    priority = 999,
+
+
     dependencies = {
         'nvim-lua/plenary.nvim'
     },
@@ -11,23 +14,23 @@ return {
     keys = {
         {
             '<leader>ff',
-            require('telescope.builtin').find_files
+            'Telescope find_files'
         },
         {
             '<leader>ft',
-            require('telescope.builtin').live_grep
+            'Telescope live_grep'
         },
         {
             '<leader>fb',
-            require('telescope.builtin').buffers
+            'Telescope buffers'
         },
         {
             '<leader>fh',
-            require('telescope.builtin').help_tags
+            'Telescope help_tags'
         },
         {
             '<leader>fc',
-            require('telescope.builtin').git_commits
+            'Telescope git_commits'
         },
     },
 
