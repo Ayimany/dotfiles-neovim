@@ -6,7 +6,6 @@ return {
 
     opts = {
         inlay_hints = {
-            only_current_line_autocmd = { 'CursorHold,CursorMoved' },
             parameter_hints_prefix = '󰁍 ',
             other_hints_prefix = '󰁔 ',
         },
@@ -39,7 +38,5 @@ return {
         symbol_info = {
             border = 'rounded',
         },
-
     }
-
 }
