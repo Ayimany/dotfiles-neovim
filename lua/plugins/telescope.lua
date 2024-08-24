@@ -2,9 +2,11 @@ return {
     'nvim-telescope/telescope.nvim',
     name = 'Telescope',
 
+
     dependencies = {
         'nvim-lua/plenary.nvim'
     },
+
 
     keys = {
         {
@@ -28,6 +30,7 @@ return {
             require('telescope.builtin').git_commits
         },
     },
+
 
     opts = {
         defaults = {

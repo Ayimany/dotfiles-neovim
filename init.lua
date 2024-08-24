@@ -91,3 +91,5 @@ vim.opt.signcolumn     = 'yes'
 vim.g.mapleader        = ' '
 
 require('bootstrap')
+
+vim.cmd.colorscheme('catppuccin')

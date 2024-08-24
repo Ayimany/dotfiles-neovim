@@ -4,6 +4,7 @@ return {
     build = ':TSUpdate',
     main  = 'nvim-treesitter.configs',
 
+
     dependencies = {
         {
             'nvim-treesitter/nvim-treesitter-refactor',
@@ -16,19 +17,22 @@ return {
         }
     },
 
+
     opts = {
         ensure_installed = {
-            'c', 'cpp', 'markdown'
+            'c', 'cpp', 'lua', 'markdown'
         },
 
+
         auto_install = true,
+
 
         highlight = {
             enable = true,
 
-            disable = function(lang, buf)
+            disable = function(_, buf)
                 local max_filesize = 100 * 1024 -- 100 KB
-                local ok, stats = pcall(vim.loop.fs_stat, vim.api.nvim_buf_get_name(buf))
+                local ok, stats = pcall(vim.uv.fs_stat, vim.api.nvim_buf_get_name(buf))
                 if ok and stats and stats.size > max_filesize then
                     return true
                 end
@@ -37,11 +41,13 @@ return {
             additional_vim_regex_highlighting = false,
         },
 
+
         refactor = {
             highlight_definitions = {
                 enable = true,
                 clear_on_cursor_move = true
             },
+
 
             smart_rename = {
                 enable = function()
@@ -53,10 +59,12 @@ return {
                 }
             },
 
+
             navigation = {
                 enable = function()
                     return #vim.lsp.get_clients() == 0
                 end,
+
 
                 keymaps = {
                     goto_definition     = '<leader>sd',
@@ -67,10 +75,12 @@ return {
             }
         },
 
+
         textobjects = {
             select = {
                 enable = true,
                 lookahead = true,
+
 
                 keymaps = {
                     ['ah'] = '@assignment.lhs',
@@ -97,11 +107,9 @@ return {
                     ['oA'] = '@attribute.outer',
                     ['s']  = '@statement.outer',
                     ['n']  = '@number.inner'
-                },
-
-                selection_modes = {
                 }
             },
+
 
             swap = {
                 enable = true,
@@ -113,6 +121,7 @@ return {
                     ['<leader>sF'] = '@function.inner'
                 },
 
+
                 swap_previous = {
                     ['<leader>Sp'] = '@parameter.inner',
                     ['<leader>Sa'] = '@assignment.inner',
@@ -122,9 +131,11 @@ return {
                 }
             },
 
+
             move = {
                 enable = true,
                 set_jumps = true,
+
 
                 goto_next_start = {
                     ['<leader>ma'] = '@assignment.inner',
@@ -141,6 +152,7 @@ return {
                     ['<leader>ms'] = '@statement.outer'
                 },
 
+
                 goto_previous_start = {
                     ['<leader>Ma'] = '@assignment.inner',
                     ['<leader>MA'] = '@attribute.inner',
@@ -154,12 +166,14 @@ return {
                     ['<leader>Mn'] = '@number.inner',
                     ['<leader>Mr'] = '@return.outer',
                     ['<leader>Ms'] = '@statement.outer'
-                },
+                }
             },
+
 
             lsp_interop = {
                 enable = true,
                 border = 'rounded',
+
 
                 peek_definition_code = {
                     ['<leader>cA'] = '@assignment.inner',
@@ -170,4 +184,3 @@ return {
         }
     }
 }
-

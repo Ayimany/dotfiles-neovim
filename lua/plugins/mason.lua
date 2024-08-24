@@ -2,6 +2,7 @@ return {
     'williamboman/mason-lspconfig.nvim',
     name = 'Mason LSPConfig',
 
+
     dependencies = {
         {
             'williamboman/mason.nvim',
@@ -18,6 +19,7 @@ return {
             }
         }
     },
+
 
     opts = {
         ensure_installed = {

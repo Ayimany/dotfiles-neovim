@@ -11,7 +11,7 @@ return {
             Method        = '',
             Function      = '',
             Constructor   = '',
-            Field         = '󰝵',
+            Field         = '󰏄',
             Variable      = '♥',
             Class         = '',
             Interface     = '',

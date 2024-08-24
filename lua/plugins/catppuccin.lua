@@ -1,22 +1,25 @@
 return {
     'catppuccin/nvim',
-    name     = 'Catppuccin',
+    name = 'Catppuccin',
+
 
     priority = 1000,
 
-    opts     = {
-        flavour                = 'auto',
 
-        background             = {
+    opts = {
+        flavour = 'auto',
+        background = {
             light = 'latte',
             dark  = 'mocha'
         },
+
 
         transparent_background = true,
         show_end_of_buffer     = true,
         term_colors            = true,
 
-        styles                 = {
+
+        styles = {
             comments     = { 'italic' },
             conditionals = {},
             loops        = {},
@@ -28,10 +31,11 @@ return {
             booleans     = { 'bold' },
             properties   = { 'italic' },
             types        = {},
-            operators    = {},
+            operators    = {}
         },
 
-        integrations           = {
+
+        integrations = {
             cmp                = true,
             gitsigns           = true,
             lsp_trouble        = true,
@@ -39,12 +43,16 @@ return {
             treesitter         = true,
             treesitter_context = true,
 
-            telescope          = {
+
+            telescope = {
                 enabled = true,
             },
 
-            native_lsp         = {
+
+            native_lsp = {
                 enabled = true,
+
+
                 virtual_text = {
                     errors      = { 'italic' },
                     hints       = { 'italic' },
@@ -52,6 +60,8 @@ return {
                     information = { 'italic' },
                     ok          = { 'italic' },
                 },
+
+
                 underlines = {
                     errors      = { 'underline' },
                     hints       = { 'underline' },
@@ -59,6 +69,8 @@ return {
                     information = { 'underline' },
                     ok          = { 'underline' },
                 },
+
+
                 inlay_hints = {
                     background = true,
                 }
@@ -66,9 +78,6 @@ return {
         }
     },
 
-    config   = function(_, opts)
-        require('catppuccin').setup(opts)
-        vim.cmd.colorscheme('catppuccin')
-    end
+    config = true
 
 }

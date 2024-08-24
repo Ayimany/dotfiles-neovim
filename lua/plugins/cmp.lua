@@ -2,6 +2,7 @@ return {
     'hrsh7th/nvim-cmp',
     name = 'Cmp',
 
+
     dependencies = {
         { 'hrsh7th/cmp-nvim-lsp', name = 'Cmp Nvim LSP' },
         { 'hrsh7th/cmp-buffer',   name = 'Cmp Buffer' },
@@ -9,6 +10,7 @@ return {
         { 'hrsh7th/cmp-cmdline',  name = 'Cmp Cmdline' },
         { 'L3MON4D3/LuaSnip',     name = 'LuaSnip' }
     },
+
 
     config = function()
         local luasnip = require('luasnip')
@@ -22,6 +24,7 @@ return {
                 end,
             },
 
+
             window = {
                 completion = {
                     winhighlight = 'Normal:Pmenu,FloatBorder:Pmenu,Search:None',
@@ -30,6 +33,7 @@ return {
                     border = 'rounded'
                 }
             },
+
 
             formatting = {
                 fields = { 'kind', 'abbr', 'menu' },
@@ -42,11 +46,12 @@ return {
 
                     return kind
                 end
-
             },
+
 
             mapping = cmp.mapping.preset.insert({
                 ['<C-d>'] = cmp.mapping.scroll_docs(-4),
+
                 ['<C-u>'] = cmp.mapping.scroll_docs(4),
 
                 ['<C-Space>'] = cmp.mapping.complete(),
@@ -96,11 +101,13 @@ return {
             })
         })
 
+
         cmp.setup.cmdline('/', {
             sources = cmp.config.sources({
                 { name = 'buffer' }
             })
         })
+
 
         cmp.setup.cmdline(':', {
             sources = cmp.config.sources({
@@ -109,14 +116,18 @@ return {
             })
         })
 
+
         local cmp_autopairs = require('nvim-autopairs.completion.cmp')
+
 
         cmp.event:on(
             'confirm_done',
             cmp_autopairs.on_confirm_done()
         )
 
+
         local c = require('catppuccin.palettes').get_palette('mocha')
+
 
         vim.api.nvim_set_hl(0, 'PmenuSel', { fg = c.text, bg = 'NONE' })
         vim.api.nvim_set_hl(0, 'Pmenu', { fg = c.text, bg = c.surface0 })
