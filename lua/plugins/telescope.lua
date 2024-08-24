@@ -2,25 +2,39 @@ return {
     'nvim-telescope/telescope.nvim',
     name = 'Telescope',
 
-    dependencies = { 'nvim-lua/plenary.nvim' },
+    dependencies = {
+        'nvim-lua/plenary.nvim'
+    },
 
     keys = {
         {
             '<leader>ff',
-            '<cmd>lua require(\'telescope.builtin\').find_files()<cr>'
+            require('telescope.builtin').find_files
         },
         {
-            '<leader>fg',
-            '<cmd>lua require(\'telescope.builtin\').live_grep()<cr>'
+            '<leader>ft',
+            require('telescope.builtin').live_grep
         },
         {
             '<leader>fb',
-            '<cmd>lua require(\'telescope.builtin\').buffers()<cr>'
+            require('telescope.builtin').buffers
         },
         {
             '<leader>fh',
-            '<cmd>lua require(\'telescope.builtin\').help_tags()<cr>'
+            require('telescope.builtin').help_tags
         },
-        { '<leader>fc', '<cmd>Telescope git_commits<CR>' },
+        {
+            '<leader>fc',
+            require('telescope.builtin').git_commits
+        },
+    },
+
+    opts = {
+        defaults = {
+            layout_strategy = 'vertical',
+            prompt_prefix = '    ',
+            selection_caret = '    ',
+            multi_icon = '    ',
+        }
     }
 }
