@@ -22,6 +22,9 @@ return {
     opts = {
         ensure_installed = {
             'clangd',
+            'neocmake',
+            'bashls',
+            'texlab',
             'lua_ls',
             'pylsp',
         }

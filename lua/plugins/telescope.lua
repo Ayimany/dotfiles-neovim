@@ -20,6 +20,7 @@ return {
         {
             '<leader>fh',
             '<cmd>lua require(\'telescope.builtin\').help_tags()<cr>'
-        }
+        },
+        { '<leader>fc', '<cmd>Telescope git_commits<CR>' },
     }
 }
