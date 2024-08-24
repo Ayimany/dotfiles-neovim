@@ -7,83 +7,64 @@ return {
     keys = {
         {
             '<leader>gb',
-            function()
-                require('gitsigns').blame_line({ fill = true })
-            end },
-
+            '<cmd>Gitsigns blame_line<CR>',
+            desc = 'Git: Blame line'
+        },
         {
             ']c',
-            function()
-                if vim.wo.diff then return ']c' end
-                vim.schedule(function()
-                    require('gitsigns').next_hunk()
-                end)
-                return '<Ignore>'
-            end, { expr = true, buffer = vim.bufnr }
+            '<cmd>Gitsigns next_hunk<CR>',
+            desc = 'Git: Next change'
         },
-
         {
             '[c',
-            function()
-                if vim.wo.diff then return '[c' end
-                vim.schedule(function()
-                    require('gitsigns').prev_hunk()
-                end)
-                return '<Ignore>'
-            end, { expr = true, buffer = vim.bufnr }
+            '<cmd>Gitsigns prev_hunk<CR>',
+            desc = 'Git: Previous change'
         },
-
         {
-            '<leader>gh',
-            function()
-                require('gitsigns').stage_hunk()
-            end, { buffer = vim.bufnr }
+            '<leader>gsh',
+            '<cmd>Gitsigns stage_hunk<CR>',
+            desc = 'Git: Stage hunk'
         },
-
         {
-            '<leader>gH',
-            function()
-                require('gitsigns').undo_stage_hunk()
-            end, { buffer = vim.bufnr }
+            '<leader>gsH',
+            '<cmd>Gitsigns undo_stage_hunk<CR>',
+            desc = 'Git: Unstage hunk'
         },
-
         {
-            '<leader>gs',
-            function()
-                require('gitsigns').stage_buffer()
-            end, { buffer = vim.bufnr }
+            '<leader>grh',
+            '<cmd>Gitsigns reset_hunk<CR>',
+            desc = 'Git: Reset hunk'
         },
-
         {
-            '<leader>gS',
-            function()
-                require('gitsigns').unstage_buffer()
-            end, { buffer = vim.bufnr }
+            '<leader>gsb',
+            '<cmd>Gitsigns stage_buffer<CR>',
+            desc = 'Git: Stage buffer'
         },
-
         {
-            '<leader>gr',
-            function()
-                require('gitsigns').reset_hunk()
-            end, { buffer = vim.bufnr }
+            '<leader>grb',
+            '<cmd>Gitsigns _buffer<CR>',
+            desc = 'Git: Reset buffer'
         },
-
         {
-            '<leader>gR',
-            function()
-                require('gitsigns').reset_buffer()
-            end, { buffer = vim.bufnr }
+            '<leader>gdd',
+            '<cmd>Gitsigns toggle_deleted<CR>',
+            desc = 'Git: Show deleted'
         },
-
         {
-            '<leader>gv',
+            '<leader>gdp',
+            '<cmd>Gitsigns preview_hunk<CR>',
+            desc = 'Git: Diff preview'
+        },
+        {
+            '<leader>gvh',
             '<cmd>Gitsigns select_hunk<CR>',
-            { buffer = vim.bufnr }
+            desc = 'Git: Select hunk'
         }
     },
 
+
     opts = {
-        signs                        = {
+        signs = {
             add          = { text = '' },
             change       = { text = '' },
             delete       = { text = '' },
@@ -92,7 +73,8 @@ return {
             untracked    = { text = '' },
         },
 
-        signs_staged                 = {
+
+        signs_staged = {
             add          = { text = '' },
             change       = { text = '' },
             delete       = { text = '' },
@@ -101,21 +83,25 @@ return {
             untracked    = { text = '' },
         },
 
-        signs_staged_enable          = true,
-        signcolumn                   = true,
-        numhl                        = false,
-        linehl                       = false,
-        word_diff                    = false,
 
-        watch_gitdir                 = {
+        signs_staged_enable = true,
+        signcolumn          = true,
+        numhl               = false,
+        linehl              = false,
+        word_diff           = false,
+
+
+        watch_gitdir = {
             follow_files = true
         },
 
-        auto_attach                  = true,
-        attach_to_untracked          = false,
-        current_line_blame           = true,
 
-        current_line_blame_opts      = {
+        auto_attach         = true,
+        attach_to_untracked = false,
+        current_line_blame  = true,
+
+
+        current_line_blame_opts = {
             virt_text          = true,
             virt_text_pos      = 'eol',
             delay              = 1000,
@@ -123,13 +109,15 @@ return {
             virt_text_priority = 100,
         },
 
+
         current_line_blame_formatter = '  <author> |   <summary>',
         sign_priority                = 6,
         update_debounce              = 100,
         status_formatter             = nil,
         max_file_length              = 40000,
 
-        preview_config               = {
+
+        preview_config = {
             border   = 'rounded',
             style    = 'minimal',
             relative = 'cursor',
