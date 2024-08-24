@@ -7,34 +7,47 @@ return {
     -- Move to AutoCmd
     keys = {
         {
-            '<leader>CS',
-            '<cmd>ClangdSwitchSourceHeader<CR>'
+            '<leader>lS',
+            '<cmd>ClangdSwitchSourceHeader<CR>',
+            desc = 'Clang: Switch source-header',
+            ft = { 'c', 'cpp' }
         },
         {
-            '<leader>Ch',
-            '<cmd>ClangdToggleInlayHints<CR>'
+            '<leader>lh',
+            '<cmd>ClangdToggleInlayHints<CR>',
+            desc = 'Clang: Toggle inlay hints',
+            ft = { 'c', 'cpp' }
         },
         {
-            '<leader>CT',
-            '<cmd>ClangdAST<CR>'
+            '<leader>lT',
+            '<cmd>ClangdAST<CR>',
+            desc = 'Clang: Toggle AST',
+            ft = { 'c', 'cpp' }
         },
         {
-            '<leader>Cs',
-            '<cmd>ClangdSymbolInfo<CR>'
+            '<leader>ls',
+            '<cmd>ClangdSymbolInfo<CR>',
+            desc = 'Clang: Show symbol info',
+            ft = { 'c', 'cpp' }
         },
         {
-            '<leader>Ct',
-            '<cmd>ClangdTypeHierarchy<CR>'
+            '<leader>lt',
+            '<cmd>ClangdTypeHierarchy<CR>',
+            desc = 'Clang: Show type hierarchy',
+            ft = { 'c', 'cpp' }
         },
         {
-            '<leader>Cm',
-            '<cmd>ClangdMemoryUsage<CR>'
+            '<leader>lm',
+            '<cmd>ClangdMemoryUsage<CR>',
+            desc = 'Clang: Show memory usage',
+            ft = { 'c', 'cpp' }
         },
     },
 
 
     opts = {
         inlay_hints = {
+            inline = true,
             parameter_hints_prefix = '  ',
             other_hints_prefix = '  ',
         },
@@ -44,21 +57,21 @@ return {
             role_icons = {
                 type = '  ',
                 declaration = '  ',
-                expression = '  ',
-                specifier = '  ',
-                statement = '  ',
-                ['template argument'] = ' ',
+                expression = '  ',
+                specifier = '  ',
+                statement = '  ',
+                ['template argument'] = '  ',
             },
 
 
             kind_icons = {
                 Compound = '  ',
-                Recovery = '  ',
+                Recovery = '  ',
                 TranslationUnit = '  ',
                 PackExpansion = '  ',
-                TemplateTypeParm = '  ',
-                TemplateTemplateParm = '  ',
-                TemplateParamObject = '  ',
+                TemplateTypeParm = '  ',
+                TemplateTemplateParm = '  ',
+                TemplateParamObject = '  ',
             }
         },
 
@@ -71,5 +84,11 @@ return {
         symbol_info = {
             border = 'rounded',
         }
-    }
+    },
+
+    config = function(_, opts)
+        require('clangd_extensions').setup(opts)
+        require("clangd_extensions.inlay_hints").setup_autocmd()
+        require("clangd_extensions.inlay_hints").set_inlay_hints()
+    end
 }
