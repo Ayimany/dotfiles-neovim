@@ -1,14 +1,16 @@
 return {
     'p00f/clangd_extensions.nvim',
     name = 'Clangd Extensions',
+
     ft   = { 'c', 'cpp' },
 
     opts = {
         inlay_hints = {
             only_current_line_autocmd = { 'CursorHold,CursorMoved' },
             parameter_hints_prefix = '󰁍 ',
-            other_hints_prefix = '󰁔 ' ,
+            other_hints_prefix = '󰁔 ',
         },
+
         ast = {
             role_icons = {
                 type = ' ',
@@ -27,13 +29,15 @@ return {
                 TemplateTypeParm = ' ',
                 TemplateTemplateParm = ' ',
                 TemplateParamObject = ' ',
-            },
+            }
         },
+
         memory_usage = {
-            border = 'none',
+            border = 'rounded',
         },
+
         symbol_info = {
-            border = 'none',
+            border = 'rounded',
         },
 
     }

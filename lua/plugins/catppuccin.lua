@@ -1,10 +1,12 @@
 return {
     'catppuccin/nvim',
     name     = 'Catppuccin',
+
     priority = 1000,
 
     opts     = {
         flavour                = 'auto',
+
         background             = {
             light = 'latte',
             dark  = 'mocha'
@@ -30,18 +32,18 @@ return {
         },
 
         integrations           = {
-            cmp = true,
-            gitsigns = true,
-            lsp_trouble = true,
-            mason = true,
-            treesitter = true,
+            cmp                = true,
+            gitsigns           = true,
+            lsp_trouble        = true,
+            mason              = true,
+            treesitter         = true,
             treesitter_context = true,
 
-            telescope = {
+            telescope          = {
                 enabled = true,
             },
 
-            native_lsp = {
+            native_lsp         = {
                 enabled = true,
                 virtual_text = {
                     errors      = { 'italic' },
@@ -59,12 +61,12 @@ return {
                 },
                 inlay_hints = {
                     background = true,
-                },
-            },
+                }
+            }
         }
     },
 
-    config   = function(plugin, opts)
+    config   = function(_, opts)
         require('catppuccin').setup(opts)
         vim.cmd.colorscheme('catppuccin')
     end
