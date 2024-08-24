@@ -14,23 +14,28 @@ return {
     keys = {
         {
             '<leader>ff',
-            'Telescope find_files'
+            '<cmd>Telescope find_files<CR>',
+            desc = 'Find: Files'
         },
         {
             '<leader>ft',
-            'Telescope live_grep'
+            '<cmd>Telescope live_grep<CR>',
+            desc = 'Find: Text'
         },
         {
             '<leader>fb',
-            'Telescope buffers'
+            '<cmd>Telescope buffers<CR>',
+            desc = 'Find: Open buffers'
         },
         {
             '<leader>fh',
-            'Telescope help_tags'
+            '<cmd>Telescope help_tags<CR>',
+            desc = 'Find: Help tags'
         },
         {
             '<leader>fc',
-            'Telescope git_commits'
+            '<cmd>Telescope git_commits<CR>',
+            desc = 'Find: Commits'
         },
     },
 
