@@ -1,46 +1,48 @@
+local lset = require('util.langset')
+
 return {
     'p00f/clangd_extensions.nvim',
     name = 'Clangd Extensions',
 
 
-    ft = { 'c', 'cpp' },
-    -- Move to AutoCmd
+    ft = lset.c.ft,
+
     keys = {
         {
             '<leader>lS',
             '<cmd>ClangdSwitchSourceHeader<CR>',
             desc = 'Clang: Switch source-header',
-            ft = { 'c', 'cpp' }
+            ft = lset.c.ft
         },
         {
             '<leader>lh',
             '<cmd>ClangdToggleInlayHints<CR>',
             desc = 'Clang: Toggle inlay hints',
-            ft = { 'c', 'cpp' }
+            ft = lset.c.ft
         },
         {
             '<leader>lT',
             '<cmd>ClangdAST<CR>',
             desc = 'Clang: Toggle AST',
-            ft = { 'c', 'cpp' }
+            ft = lset.c.ft
         },
         {
             '<leader>ls',
             '<cmd>ClangdSymbolInfo<CR>',
             desc = 'Clang: Show symbol info',
-            ft = { 'c', 'cpp' }
+            ft = lset.c.ft
         },
         {
             '<leader>lt',
             '<cmd>ClangdTypeHierarchy<CR>',
             desc = 'Clang: Show type hierarchy',
-            ft = { 'c', 'cpp' }
+            ft = lset.c.ft
         },
         {
             '<leader>lm',
             '<cmd>ClangdMemoryUsage<CR>',
             desc = 'Clang: Show memory usage',
-            ft = { 'c', 'cpp' }
+            ft = lset.c.ft
         },
     },
 
@@ -85,10 +87,4 @@ return {
             border = 'rounded',
         }
     },
-
-    config = function(_, opts)
-        require('clangd_extensions').setup(opts)
-        require("clangd_extensions.inlay_hints").setup_autocmd()
-        require("clangd_extensions.inlay_hints").set_inlay_hints()
-    end
 }

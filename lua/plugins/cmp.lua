@@ -1,3 +1,6 @@
+local lset = require('util.langset')
+local ftut = require('util.filetype')
+
 return {
     'hrsh7th/nvim-cmp',
     name = 'Cmp',
@@ -22,6 +25,23 @@ return {
                 expand = function(args)
                     luasnip.lsp_expand(args.body)
                 end,
+            },
+
+            sorting = {
+                comparators = {
+                    cmp.config.compare.offset,
+                    cmp.config.compare.exact,
+                    cmp.config.compare.recently_used,
+                    function()
+                        if ftut.ft_is_of_type(lset.c.ft) then
+                            require("clangd_extensions.cmp_scores")
+                        end
+                    end,
+                    cmp.config.compare.kind,
+                    cmp.config.compare.sort_text,
+                    cmp.config.compare.length,
+                    cmp.config.compare.order,
+                },
             },
 
 

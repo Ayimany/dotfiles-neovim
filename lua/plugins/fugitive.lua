@@ -2,7 +2,6 @@ return {
     'tpope/vim-fugitive',
     name = 'Fugitive',
 
-
     keys = {
         {
             '<leader>gg',
