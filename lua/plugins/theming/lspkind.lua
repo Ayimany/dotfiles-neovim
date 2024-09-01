@@ -4,7 +4,7 @@ return {
     main = 'lspkind',
 
     opts = {
-        mode       = 'symbol_text',
+        mode = 'symbol_text',
 
         symbol_map = {
             Text          = '',
@@ -37,3 +37,4 @@ return {
 
     config = true
 }
+

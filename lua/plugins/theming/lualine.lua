@@ -16,11 +16,11 @@ return {
             lualine_b = { 'branch', 'diff' },
             lualine_c = { 'filename', 'diagnostics' },
 
-            lualine_x = { 'filesize', 'encoding', 'fileformat', 'filetype' },
-            lualine_y = { },
+            lualine_x = { 'encoding', 'fileformat', 'filetype' },
+            lualine_y = { 'filesize' },
             lualine_z = { 'location', 'progress', 'selectioncount', 'searchcount' }
         }
-},
+    },
 
     config = true
 }

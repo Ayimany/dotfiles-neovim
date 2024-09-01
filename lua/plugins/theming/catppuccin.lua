@@ -3,9 +3,7 @@ return {
     name = 'Theming::catppuccin',
     main = 'catppuccin',
 
-
     priority = 1000,
-
 
     opts = {
         flavour = 'auto',
@@ -13,7 +11,6 @@ return {
             light = 'latte',
             dark  = 'mocha'
         },
-
 
         transparent_background = true,
         show_end_of_buffer     = true,
@@ -39,5 +36,5 @@ return {
         require('catppuccin').setup(opts)
         vim.cmd.colorscheme('catppuccin')
     end
-
 }
+

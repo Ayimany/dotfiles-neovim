@@ -3,3 +3,4 @@ return {
     name = 'Theming::devicons',
     main = 'nvim-web-devicons'
 }
+
