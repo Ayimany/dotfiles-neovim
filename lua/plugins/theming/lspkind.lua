@@ -1,7 +1,7 @@
 return {
     'onsails/lspkind.nvim',
     name = 'Theming::lspkind',
-    main = 'lspkind'
+    main = 'lspkind',
 
     opts = {
         mode       = 'symbol_text',
