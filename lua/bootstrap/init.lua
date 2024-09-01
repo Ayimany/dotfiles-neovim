@@ -1,8 +1,5 @@
---  __                  _____     _
--- |  |   ___ ___ _ _  |   | |_ _|_|_____
--- |  |__| .'|- _| | |_| | | | | | |     |
--- |_____|__,|___|_  |_|_|___|\_/|_|_|_|_|
---               |___|
+-- Main Bootstrapping Module
+-- Loads Lazy.nvim
 
 local lazypath = vim.fn.stdpath('data') .. '/lazy/lazy.nvim'
 
@@ -16,8 +13,8 @@ if not (vim.uv or vim.loop).fs_stat(lazypath) then
             { out,                            'WarningMsg' },
             { '\nPress any key to exit...' },
         }, true, {})
-        vim.fn.getchar()
 
+        vim.fn.getchar()
         os.exit(1)
     end
 end
@@ -27,7 +24,7 @@ vim.opt.rtp:prepend(lazypath)
 require('lazy').setup({
 
     spec = {
-        { import = 'plugins' },
+        { import = 'plugins/theming' },
     },
 
     install = {
@@ -36,7 +33,7 @@ require('lazy').setup({
 
     checker = {
         enabled = true,
-        notify = false -- we let the autogroup handle it
+        notify = false
     },
 
     change_detection = {
@@ -55,15 +52,13 @@ require('lazy').setup({
     }
 })
 
-local function augroup(name)
-    return vim.api.nvim_create_augroup("lazyvim_" .. name, { clear = true })
-end
-
+-- Automatically update plugins (If updates are available)
 vim.api.nvim_create_autocmd("VimEnter", {
-    group = augroup("autoupdate"),
+    group = vim.api.nvim_create_augroup('lazyvim_auto_update', { clear = true }),
     callback = function()
         if require("lazy.status").has_updates then
             require("lazy").update({ show = false, })
         end
     end,
 })
+
