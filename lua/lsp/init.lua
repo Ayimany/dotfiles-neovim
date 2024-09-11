@@ -1,38 +1,36 @@
 local lspconfig = require('lspconfig')
-local cmp = require('cmp_nvim_lsp')
+local lsp_zero = require('lsp-zero')
+local wk = require('which-key')
 
-lspconfig.lua_ls.setup({
-    capabilities = cmp.default_capabilities(),
-    on_init = function(client)
-        local path = client.workspace_folders[1].name
+local lsp_attach = function(_, bufnr)
+    lsp_zero.default_keymaps({ buffer = bufnr, exclude = { 'K' } })
 
-        if vim.loop.fs_stat(path..'/.luarc.json') or vim.loop.fs_stat(path..'/.luarc.jsonc') then
-            return
-        end
+    require('nvim-treesitter')
+    require('conform')
 
-        client.config.settings.Lua = vim.tbl_deep_extend('force', client.config.settings.Lua, {
-            runtime = {
-                version = 'LuaJIT'
-            },
-            workspace = {
-                checkThirdParty = false,
-                library = {
-                    vim.env.VIMRUNTIME
-                }
-            }
-        })
-    end,
+    wk.add({
+        {
+            '<leader>lc',
+            vim.lsp.buf.code_action,
+            desc = 'Code Actions',
+            icon = '  ',
+        },
+    })
+end
 
-  settings = {
-    Lua = { }
-  }
+lsp_zero.extend_lspconfig({
+    capabilities = require('cmp_nvim_lsp').default_capabilities(),
+    lsp_attach = lsp_attach,
+    sign_text = true,
 })
+
+lspconfig.lua_ls.setup({})
+
+lspconfig.pylsp.setup({})
 
 lspconfig.clangd.setup({
-    capabilities = cmp.default_capabilities();
+    on_attach = function()
+        require('clangd_extensions.inlay_hints').setup_autocmd()
+        require('clangd_extensions.inlay_hints').set_inlay_hints()
+    end,
 })
-
-lspconfig.pylsp.setup({
-    capabilities = cmp.default_capabilities();
-})
-

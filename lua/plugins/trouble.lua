@@ -1,39 +1,31 @@
 return {
-    'folke/trouble.nvim',
-    name = 'Trouble',
+    ---------------------------------------------------------------------------
 
-    opts = {},
+    'folke/trouble.nvim',
+
+    ---------------------------------------------------------------------------
 
     keys = {
         {
-            '<leader>xx',
+            '<leader>ld',
             '<cmd>Trouble diagnostics toggle<cr>',
-            desc = 'Diagnostics: Window'
+            desc = 'Diagnostics',
         },
         {
-            '<leader>xX',
+            '<leader>lD',
             '<cmd>Trouble diagnostics toggle filter.buf=0<cr>',
-            desc = 'Diagnostics: Filter'
+            desc = 'Diagnostics (Buffer)',
         },
         {
-            '<leader>xs',
-            '<cmd>Trouble symbols toggle focus=false<cr>',
-            desc = 'Diagnostics: Symbols'
-        },
-        {
-            '<leader>xf',
-            '<cmd>Trouble lsp toggle focus=false win.position=right<cr>',
-            desc = 'Diagnostics: LSP'
-        },
-        {
-            '<leader>xl',
-            '<cmd>Trouble loclist toggle<cr>',
-            desc = 'Diagnostics: Loclist'
-        },
-        {
-            '<leader>xq',
+            '<leader>lq',
             '<cmd>Trouble qflist toggle<cr>',
-            desc = 'Diagnostics: Quick fixes'
-        }
-    }
+            desc = 'Quick Fixes',
+        },
+    },
+
+    ---------------------------------------------------------------------------
+
+    config = true,
+
+    ---------------------------------------------------------------------------
 }

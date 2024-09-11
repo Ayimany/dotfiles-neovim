@@ -1,7 +1,7 @@
 return {
     ---------------------------------------------------------------------------
 
-    'neovim/nvim-lspconfig',
+    'rasulomaroff/reactive.nvim',
 
     ---------------------------------------------------------------------------
 
@@ -9,9 +9,18 @@ return {
 
     ---------------------------------------------------------------------------
 
-    config = function()
-        require('lsp')
-    end,
+    opts = {
+        load = {
+            'catppuccin-mocha-cursor',
+            'catppuccin-mocha-cursorline',
+        },
+
+        builtin = {
+            cursorline = true,
+            cursor = true,
+            modemsg = true,
+        },
+    },
 
     ---------------------------------------------------------------------------
 }
