@@ -5,12 +5,19 @@ return {
 
     ---------------------------------------------------------------------------
 
+    event = 'VeryLazy',
+
+    ---------------------------------------------------------------------------
+
     dependencies = {
         { 'hrsh7th/cmp-nvim-lsp' },
         { 'hrsh7th/cmp-buffer' },
         { 'hrsh7th/cmp-path' },
         { 'hrsh7th/cmp-cmdline' },
         { 'hrsh7th/cmp-calc' },
+        { 'hrsh7th/cmp-nvim-lsp-document-symbol' },
+        { 'hrsh7th/cmp-nvim-lsp-signature-help' },
+        { 'paopaol/cmp-doxygen' },
         { 'L3MON4D3/LuaSnip' },
     },
 
@@ -37,6 +44,13 @@ return {
                 ['<C-p>'] = cmp.mapping.scroll_docs(-4),
                 ['<C-n>'] = cmp.mapping.scroll_docs(4),
                 ['<C-Space>'] = cmp.mapping.complete(),
+                ['<Tab>'] = cmp.mapping.select_next_item(),
+                ['<S-Tab>'] = cmp.mapping.select_prev_item(),
+
+                ['<CR>'] = cmp.mapping.confirm({
+                    behavior = cmp.ConfirmBehavior.Insert,
+                    select = false,
+                }),
 
                 ['<Esc>'] = function(fallback)
                     if cmp.visible() then
@@ -47,48 +61,15 @@ return {
                         fallback()
                     end
                 end,
-
-                ['<CR>'] = cmp.mapping.confirm({
-                    behavior = cmp.ConfirmBehavior.Insert,
-                    select = false,
-                }),
-
-                ['<Tab>'] = cmp.mapping(function(fallback)
-                    if cmp.visible() then
-                        cmp.select_next_item()
-                        return
-                    end
-
-                    if luasnip.expand_or_jumpable() then
-                        luasnip.expand_or_jump()
-                        return
-                    end
-
-                    fallback()
-                end, { 'i', 's' }),
-
-                ['<S-Tab>'] = cmp.mapping(function(fallback)
-                    if cmp.visible() then
-                        cmp.select_prev_item()
-                        return
-                    end
-
-                    if luasnip.jumpable(-1) then
-                        luasnip.jump(-1)
-                        return
-                    end
-
-                    fallback()
-                end, { 'i', 's' }),
             }),
 
             sources = cmp.config.sources({
                 { name = 'nvim_lsp' },
                 { name = 'luasnip' },
             }, {
-                { name = 'buffer' },
-                { name = 'path' },
+                { name = 'nvim_lsp_signature_help' },
             }, {
+                { name = 'doxygen' },
                 { name = 'calc' },
             }),
 
@@ -130,7 +111,7 @@ return {
                     })
 
                     kind.kind = ' ' .. (strings[1] or '') .. ' '
-                    kind.menu = ' ' .. (strings[2] or '') .. ' '
+                    kind.menu = ' '
 
                     return kind
                 end,
@@ -139,6 +120,8 @@ return {
 
         cmp.setup.cmdline('/', {
             sources = cmp.config.sources({
+                { name = 'nvim_lsp_document_symbol' },
+            }, {
                 { name = 'buffer' },
             }),
         })

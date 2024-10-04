@@ -5,50 +5,6 @@ return {
 
     ---------------------------------------------------------------------------
 
-    event = 'VeryLazy',
-
-    ---------------------------------------------------------------------------
-
-    keys = {
-        {
-            '[c',
-            '<cmd>Gitsigns prev_hunk<cr>',
-            desc = 'Jump to the previous change',
-        },
-        {
-            ']c',
-            '<cmd>Gitsigns next_hunk<cr>',
-            desc = 'Jump to the next change',
-        },
-        {
-            '<leader>gh',
-            '<cmd>Gitsigns stage_hunk<cr>',
-            desc = 'Stage Hunk',
-        },
-        {
-            '<leader>gH',
-            '<cmd>Gitsigns undo_stage_hunk<cr>',
-            desc = 'Unstage Hunk',
-        },
-        {
-            '<leader>gvd',
-            '<cmd>Gitsigns diffthis<cr>',
-            desc = 'View Diff',
-        },
-        {
-            '<leader>gvc',
-            '<cmd>Gitsigns toggle_word_diff<cr>',
-            desc = 'View Changes',
-        },
-        {
-            '<leader>gvD',
-            '<cmd>Gitsigns toggle_deleted<cr>',
-            desc = 'View Deleted',
-        },
-    },
-
-    ---------------------------------------------------------------------------
-
     opts = {
         signs = {
             add = { text = '' },
@@ -104,6 +60,63 @@ return {
             col = 1,
         },
     },
+
+    ---------------------------------------------------------------------------
+
+    config = function(_, opts)
+        require('gitsigns').setup(opts)
+
+        require('which-key').add({
+            {
+                '[c',
+                '<cmd>Gitsigns prev_hunk<cr>',
+                icon = '  ',
+                desc = 'Jump to the previous change',
+            },
+            {
+                ']c',
+                '<cmd>Gitsigns next_hunk<cr>',
+                icon = '  ',
+                desc = 'Jump to the next change',
+            },
+            {
+                '<leader>gs',
+                '<cmd>Gitsigns stage_buffer<cr>',
+                icon = '  ',
+                desc = 'Stage Buffer',
+            },
+            {
+                '<leader>gh',
+                '<cmd>Gitsigns stage_hunk<cr>',
+                icon = '  ',
+                desc = 'Stage Hunk',
+            },
+            {
+                '<leader>gH',
+                '<cmd>Gitsigns undo_stage_hunk<cr>',
+                icon = '  ',
+                desc = 'Unstage Hunk',
+            },
+            {
+                '<leader>vd',
+                '<cmd>Gitsigns diffthis<cr>',
+                icon = '  ',
+                desc = 'View Diff',
+            },
+            {
+                '<leader>vc',
+                '<cmd>Gitsigns toggle_word_diff<cr>',
+                icon = '  ',
+                desc = 'View Changes',
+            },
+            {
+                '<leader>vD',
+                '<cmd>Gitsigns toggle_deleted<cr>',
+                icon = '  ',
+                desc = 'View Deleted',
+            },
+        })
+    end,
 
     ---------------------------------------------------------------------------
 }

@@ -47,4 +47,32 @@ return {
     },
 
     ---------------------------------------------------------------------------
+
+    config = function(_, opts)
+        require('clangd_extensions').setup(opts)
+
+        require('which-key').add({
+            '<leader>vA',
+            '<cmd>ClangdAST<cr>',
+            icon = '  ',
+            desc = 'View AST',
+        }, {
+            '<leader>sI',
+            '<cmd>ClangdSymbolInfo<cr>',
+            icon = '  ',
+            desc = 'Symbol Info',
+        }, {
+            '<leader>sH',
+            '<cmd>ClangdTypeHierarchy<cr>',
+            icon = '  ',
+            desc = 'Symbol Hierarchy',
+        }, {
+            '<leader>vM',
+            '<cmd>ClangdMemoryUsage<cr>',
+            icon = '  ',
+            desc = 'Memory Usage',
+        })
+    end,
+
+    ---------------------------------------------------------------------------
 }

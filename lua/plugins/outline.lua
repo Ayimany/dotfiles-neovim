@@ -7,7 +7,7 @@ return {
 
     keys = {
         {
-            '<leader>to',
+            '<leader>vo',
             '<cmd>Outline<cr>',
             desc = 'Code Outline',
         },

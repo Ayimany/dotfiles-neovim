@@ -49,16 +49,6 @@ return {
                 'cmakelint',
                 'codelldb',
                 'neocmakelsp',
-
-                -- Python
-                'black',
-                'debugpy',
-                'python-lsp-server',
-
-                -- Lua
-                'lua-language-server',
-                'luacheck',
-                'stylua',
             },
         },
 

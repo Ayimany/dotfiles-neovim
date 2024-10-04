@@ -10,7 +10,6 @@ return {
             c = { 'clang-format' },
             cpp = { 'clang-format' },
             lua = { 'stylua' },
-            python = { 'black' },
         },
 
         format_on_save = {

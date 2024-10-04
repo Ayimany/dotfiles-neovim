@@ -45,6 +45,7 @@ return {
             mason = true,
             notify = true,
             lsp_trouble = true,
+            nvimtree = true,
             treesitter = true,
             treesitter_context = true,
             which_key = true,

@@ -9,7 +9,7 @@ return {
         mode = 'symbol_text',
 
         symbol_map = {
-            Text = '',
+            Text = '',
             Method = '',
             Function = '',
             Constructor = '',
